@@ -24,11 +24,11 @@ import CarouselImage from "../components/CarouselImage.jsx";
       <button
         id="whatsapp-btn"
         class="pulse-button bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-        💬 Boton para Confirmar
+        💬 Confirmar aquí
       </button>
 
       <p class="text-sm text-gray-500 mt-4">
-        ¡Esperamos tu confirmación hasta el 31 de Agosto!
+        ¡Esperamos tu confirmación hasta el 24 de Agosto!
       </p>
     </div>
   </div>
@@ -39,8 +39,8 @@ import CarouselImage from "../components/CarouselImage.jsx";
     btnwa.addEventListener("click", () => {
       const message =
         "¡Hola! Confirmo mi asistencia al cumpleaños de Santi el 31 de Agosto. ¡Estamos muy emocionados por acompañarlos en esta celebración tan especial! 🎉🎂";
-      const phoneNumber = "5491234567890"; // Reemplazar con el número real
-      const whatsappUrl = `https://wa.me/${+5493815959340}?text=${encodeURIComponent(message)}`;
+      const phoneNumber = "5493815959340"; // Reemplazar con el número real
+      const whatsappUrl = `https://wa.me/${+phoneNumber}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, "_blank");
     });
   </script>

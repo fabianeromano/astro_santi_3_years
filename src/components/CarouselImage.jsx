@@ -3,13 +3,13 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  // CarouselNext,
+  // CarouselPrevious,
 } from "@/components/ui/carousel";
 
 export default function CarouselImage() {
   return (
-    <Carousel className="w-full max-w-xs">
+    <Carousel className="w-full max-w-xs z-20">
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>
@@ -23,8 +23,8 @@ export default function CarouselImage() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      {/* <CarouselPrevious />
+      <CarouselNext /> */}
     </Carousel>
   );
 }
