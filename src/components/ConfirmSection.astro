@@ -1,0 +1,47 @@
+---
+import CarouselImage from "../components/CarouselImage.jsx";
+---
+
+<section
+  class="w-full min-h-screen bg-[url('/src/assets/backgrounds/bg_2.svg')] bg-cover bg-top flex flex-col items-center justify-start pb-4">
+  <h2
+    class="text-4xl font-bold text-center text-orange-400 mt-4 mb-10"
+    style="text-shadow: 2px 2px 4px #4d4d4d;">
+    Mis fotos
+  </h2>
+  <CarouselImage client:load />
+  <div class="text-center w-full px-4 mt-8">
+    <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-orange-400">
+      <h3 class="text-3xl font-bold text-gray-800 mb-4">
+        ¡Confirma tu Asistencia!
+      </h3>
+      <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+        Santi estará súper feliz de verte en su fiesta. Por favor confirma si
+        podrás acompañarnos en esta celebración tan especial. ¡Tu presencia hará
+        que este día sea aún más mágico!
+      </p>
+
+      <button
+        id="whatsapp-btn"
+        class="pulse-button bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+        💬 Boton para Confirmar
+      </button>
+
+      <p class="text-sm text-gray-500 mt-4">
+        ¡Esperamos tu confirmación hasta el 31 de Agosto!
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // WhatsApp button
+    const btnwa = document.getElementById("whatsapp-btn");
+    btnwa.addEventListener("click", () => {
+      const message =
+        "¡Hola! Confirmo mi asistencia al cumpleaños de Santi el 31 de Agosto. ¡Estamos muy emocionados por acompañarlos en esta celebración tan especial! 🎉🎂";
+      const phoneNumber = "5491234567890"; // Reemplazar con el número real
+      const whatsappUrl = `https://wa.me/${+5493815959340}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, "_blank");
+    });
+  </script>
+</section>

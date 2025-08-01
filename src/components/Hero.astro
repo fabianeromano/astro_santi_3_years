@@ -1,0 +1,112 @@
+---
+import { Image } from "astro:assets";
+import car from "../assets/images/car.png";
+import truck from "../assets/images/truck.png";
+---
+
+<section
+  class="w-full relative min-h-screen bg-[url('/src/assets/backgrounds/bg_3.svg')] bg-cover bg-bottom flex flex-col items-center justify-start px-4">
+  <Image
+    src={car}
+    alt="Car"
+    class="absolute bottom-1 -left-[200px] w-[150px] left-animation z-20"
+  />
+  <Image
+    src={truck}
+    alt="Truck"
+    class="absolute bottom-10 right-[calc(100vw+200px)] w-[200px] right-animation z-10"
+  />
+  <div
+    class="bg-white w-full rounded-3xl p-8 shadow-xl space-y-6 z-30 mt-4 border-2 border-orange-400">
+    <h1
+      class="font-bebasneue text-4xl text-orange-400 drop-shadow-lg text-center"
+      style="text-shadow: 2px 2px 4px #4d4d4d;">
+      ¡Todos a bordo para la aventura!
+    </h1>
+
+    <p class="font-opensans text-2xl font-bold text-gray-800 text-center">
+      Nuestro pequeño
+    </p>
+
+    <div
+      class="text-7xl font-luckiest text-orange-400 transform hover:scale-110 transition-transform duration-300 text-center"
+      style="text-shadow: 3px 3px 0 #4d4d4d, -3px -3px 0 #4d4d4d;">
+      SANTI
+    </div>
+
+    <p class="font-opensans text-3xl font-bold text-gray-800 text-center">
+      ¡Cumple 3 años!
+    </p>
+  </div>
+
+  <div class="mt-20 z-40 flex flex-col items-center animate-bounce">
+    <p
+      class="text-black text-lg font-bold mb-2 drop-shadow"
+      style="font-family: 'Open Sans', sans-serif;">
+      Desliza hacia
+    </p>
+    <svg
+      class="w-10 h-10 text-orange-400 drop-shadow-md"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>
+
+<style>
+  @font-face {
+    font-family: "Bebas Neue";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Bebas Neue"), local("BebasNeue-Regular");
+  }
+
+  .font-bebasneue {
+    font-family: "Bebas Neue", cursive;
+  }
+
+  .font-opensans {
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .font-luckiest {
+    font-family: "Luckiest Guy", cursive;
+  }
+
+  .font-roboto {
+    font-family: "Roboto", sans-serif;
+  }
+
+  .left-animation {
+    animation: moveLeft 10s linear infinite;
+  }
+
+  .right-animation {
+    animation: moveRight 10s linear infinite;
+  }
+
+  @keyframes moveRight {
+    from {
+      transform: translateX(calc(100vw + 200px));
+    }
+    to {
+      transform: translateX(-200px);
+    }
+  }
+
+  @keyframes moveLeft {
+    from {
+      transform: translateX(-200px);
+    }
+    to {
+      transform: translateX(calc(100vw + 200px));
+    }
+  }
+</style>
