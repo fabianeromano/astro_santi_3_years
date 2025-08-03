@@ -3,28 +3,44 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  // CarouselNext,
-  // CarouselPrevious,
 } from "@/components/ui/carousel";
+import Photo_1 from "../assets/images/photo_1.jpg";
+import Photo_2 from "../assets/images/photo_2.jpg";
+import Photo_3 from "../assets/images/photo_3.jpg";
+
+const images = [
+  {
+    src: Photo_1,
+    alt: "Photo 1",
+  },
+  {
+    src: Photo_2,
+    alt: "Photo 2",
+  },
+  {
+    src: Photo_3,
+    alt: "Photo 3",
+  },
+];
 
 export default function CarouselImage() {
   return (
     <Carousel className="w-full max-w-xs z-20">
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
+        {images.map((image, index) => (
           <CarouselItem key={index}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
-            </div>
+            <Card className="bg-orange-400">
+              <CardContent className="flex w-full h-full items-center justify-center aspect-square">
+                <img
+                  src={image.src.src}
+                  alt={image.alt}
+                  className="object-cover w-full h-full rounded-lg"
+                />
+              </CardContent>
+            </Card>
           </CarouselItem>
         ))}
       </CarouselContent>
-      {/* <CarouselPrevious />
-      <CarouselNext /> */}
     </Carousel>
   );
 }

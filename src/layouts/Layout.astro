@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import song from "../assets/sounds/corazon_de_melon.mp3";
+import LoadingScreen from "../components/LoadingScreen.astro";
 ---
 
 <html lang="en">
@@ -15,6 +17,34 @@ import "../styles/global.css";
   </head>
   <body
     class="mx-auto max-w-md min-h-screen flex flex-col items-center justify-center">
+    <LoadingScreen />
+    <audio id="background-music" loop>
+      <source src={song} type="audio/mpeg" />
+    </audio>
     <slot />
+    <script>
+      const loadingScreen = document.getElementById('loading-screen');
+      const loadingPlane = document.getElementById('loading-plane');
+      const enterButton = document.getElementById('enter-button');
+      const audio = document.getElementById('background-music');
+
+      // 1. Cuando la página y sus recursos se cargan, esperamos a que termine la animación del avión.
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          // 2. Ocultamos el avión y mostramos el botón.
+          if (loadingPlane) loadingPlane.style.display = 'none';
+          if (enterButton) enterButton.classList.remove('hidden');
+        }, 2000); // Espera 2 segundos, igual que la animación de vuelo.
+      });
+
+      // 3. Cuando el usuario hace clic en el botón.
+      enterButton.addEventListener('click', () => {
+        // 4. Reproducimos la música.
+        audio.play().catch(error => console.error("La reproducción de audio falló: ", error));
+        
+        // 5. Ocultamos la pantalla de carga para mostrar la página.
+        if (loadingScreen) loadingScreen.style.display = 'none';
+      });
+    </script>
   </body>
 </html>
